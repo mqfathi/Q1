@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - arena/6787fe79-q1
+      - 'arena/**'
   workflow_dispatch:
 
 permissions:
