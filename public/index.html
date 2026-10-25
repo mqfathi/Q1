@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a1c">
+  <meta name="description" content="A decision studio that pairs natural-language guidance with solver-checked optimization.">
+  <title>Arcway — Decision studio</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#workspace" aria-label="Arcway home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none"><path d="M8 26.5 16.1 12l5.5 9.1 4-6.2L32 26.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="27" r="2.2" fill="currentColor"/><circle cx="32" cy="27" r="2.2" fill="currentColor"/></svg>
+        </span>
+        <span class="brand-name">arcway<span class="brand-period">.</span></span>
+      </a>
+
+      <div class="workspace-switcher">
+        <span class="workspace-avatar">N</span>
+        <span class="workspace-copy"><strong>Northstar Ops</strong><small>Operations team</small></span>
+        <svg class="chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+      </div>
+
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="main-nav">
+        <button class="nav-item is-active" type="button" data-action="workspace" aria-current="page">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="5.5" height="5.5" rx="1.2"/><rect x="11.5" y="3" width="5.5" height="5.5" rx="1.2"/><rect x="3" y="11.5" width="5.5" height="5.5" rx="1.2"/><rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1.2"/></svg>
+          <span>Decision canvas</span>
+        </button>
+        <button class="nav-item" type="button" data-action="scenarios">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 4.5h5.5l2 2H17v9H3z"/><path d="M6 11h8M6 13.5h5"/></svg>
+          <span>Scenario library</span><span class="nav-count" id="scenarioCount">5</span>
+        </button>
+        <button class="nav-item" type="button" data-action="inputs">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 5h12M4 10h12M4 15h12"/><circle cx="7" cy="5" r="1.5"/><circle cx="13" cy="10" r="1.5"/><circle cx="9" cy="15" r="1.5"/></svg>
+          <span>Model inputs</span>
+        </button>
+      </nav>
+
+      <div class="nav-label framework-label">THE 4I FRAMEWORK</div>
+      <button class="framework-nav" type="button" data-action="framework">
+        <span class="framework-nav-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span><strong>Four principles</strong><small>From insight to action</small></span>
+        <svg class="arrow-small" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8h9M8.5 4l4 4-4 4"/></svg>
+      </button>
+
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-note">
+        <div class="sidebar-note-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.7 17 6v4.2c0 3.4-2.5 5.8-7 7.1-4.5-1.3-7-3.7-7-7.1V6z"/><path d="m7 10 2 2 4-4"/></svg></div>
+        <div><strong>Solver before story</strong><p>Every recommendation is checked against the model.</p></div>
+      </div>
+      <div class="sidebar-profile">
+        <span class="profile-avatar">MC</span>
+        <span class="profile-copy"><strong>Maya Chen</strong><small>Planner</small></span>
+        <button class="profile-more" type="button" aria-label="Profile options" data-action="profile"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="4" cy="10" r="1"/><circle cx="10" cy="10" r="1"/><circle cx="16" cy="10" r="1"/></svg></button>
+      </div>
+    </aside>
+
+    <main class="main-content" id="workspace">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Open navigation"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg></button>
+        <div class="breadcrumbs"><span>Northstar Ops</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg><strong>Decision canvas</strong></div>
+        <div class="topbar-right">
+          <span class="workspace-status"><span class="status-pip"></span> DEMO WORKSPACE</span>
+          <button class="top-help" type="button" data-action="framework" aria-label="Help and framework"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M8 7.6a2.1 2.1 0 1 1 3.6 1.5c-.9.8-1.6 1.2-1.6 2.4M10 14.5v.1"/></svg></button>
+        </div>
+      </header>
+
+      <div class="page-content">
+        <section class="page-heading" aria-labelledby="pageTitle">
+          <div class="heading-copy">
+            <div class="eyebrow"><span class="eyebrow-dot"></span> DECISION STUDIO <span class="eyebrow-divider">/</span> SUPPLY NETWORK</div>
+            <h1 id="pageTitle">Weekly fulfillment plan<span class="heading-period">.</span></h1>
+            <p>Balance freight spend and customer service across your regional network.</p>
+          </div>
+          <div class="heading-actions">
+            <button class="button button-soft" type="button" id="baselineButton" title="Choose a scenario">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3.5 6.5h13M6 3.5v3m8-3v3M4.5 6.5v9h11v-9"/><path d="M7 10h2m2 0h2m-6 2.5h2"/></svg>
+              <span>Baseline</span><svg class="button-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+            </button>
+            <button class="button button-outline" type="button" id="connectAiButton">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5v3M10 14.5v3M2.5 10h3m9 0h3M4.7 4.7l2.1 2.1m6.4 6.4 2.1 2.1m0-10.6-2.1 2.1m-6.4 6.4-2.1 2.1"/><circle cx="10" cy="10" r="3.1"/></svg>
+              <span>Connect AI</span>
+            </button>
+            <button class="button button-primary" type="button" id="runOptimization">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M11.8 2.8 5.5 10h4l-1.3 7.2 6.3-8.1h-4z"/></svg>
+              <span>Run optimization</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="framework-strip" aria-label="The four principles behind the workspace">
+          <button class="principle-item" type="button" data-principle="insight">
+            <span class="principle-icon insight-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.8" cy="8.8" r="5.6"/><path d="m13 13 4 4M6.5 9h4.8M8.9 6.5v5"/></svg></span>
+            <span class="principle-copy"><span class="principle-title">Insight</span><span class="principle-detail">See the full picture</span></span>
+            <span class="principle-state"><span class="tiny-check">✓</span> 3 sources</span>
+          </button>
+          <button class="principle-item" type="button" data-principle="interpretability">
+            <span class="principle-icon interpretability-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 4.5h14v9H9l-4 3v-3H3z"/><path d="M6.5 7.5h7M6.5 10h4.8"/></svg></span>
+            <span class="principle-copy"><span class="principle-title">Interpretability</span><span class="principle-detail">Understand the why</span></span>
+            <span class="principle-state">Model-backed</span>
+          </button>
+          <button class="principle-item" type="button" data-principle="interactivity">
+            <span class="principle-icon interactivity-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h12.5M11 5.5l4.5 4.5L11 14.5"/><circle cx="4" cy="10" r="1.5"/></svg></span>
+            <span class="principle-copy"><span class="principle-title">Interactivity</span><span class="principle-detail">Explore what-ifs</span></span>
+            <span class="principle-state">Live controls</span>
+          </button>
+          <button class="principle-item" type="button" data-principle="improvisation">
+            <span class="principle-icon improvisation-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M15.8 8A6 6 0 0 0 5.5 5.4L4 7M4 4v3h3M4.2 12A6 6 0 0 0 14.5 14.6L16 13m0 3v-3h-3"/></svg></span>
+            <span class="principle-copy"><span class="principle-title">Improvisation</span><span class="principle-detail">Adapt when things change</span></span>
+            <span class="principle-state">Re-solve anytime</span>
+          </button>
+        </section>
+
+        <section class="metric-grid" aria-label="Plan summary">
+          <article class="metric-card metric-fill">
+            <div class="metric-top"><span class="metric-label">DEMAND FILLED</span><span class="metric-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 10.5 3.5 3.5L16 5.8"/></svg></span></div>
+            <div class="metric-value" id="metricFill">—</div>
+            <div class="metric-foot"><span id="metricShipped">—</span><span class="metric-foot-dot"></span><span id="metricFillCaption">of requested volume</span></div>
+            <div class="metric-progress"><span id="fillProgress"></span></div>
+          </article>
+          <article class="metric-card metric-spend">
+            <div class="metric-top"><span class="metric-label">FREIGHT SPEND</span><span class="metric-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v14m3-10.5c0-1.1-1.2-2-3-2s-3 1-3 2.2 1 1.9 3 2.3 3 1.1 3 2.4-1.2 2.4-3 2.4-3-1-3-2.2"/></svg></span></div>
+            <div class="metric-value" id="metricSpend">—</div>
+            <div class="metric-foot"><span id="metricAvgCost">—</span><span class="metric-foot-dot"></span><span>per shipped unit</span></div>
+            <div class="metric-note"><span class="metric-note-bar"></span><span>Minimized across available lanes</span></div>
+          </article>
+          <article class="metric-card metric-shortfall">
+            <div class="metric-top"><span class="metric-label">UNFILLED DEMAND</span><span class="metric-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3.2 17 16H3z"/><path d="M10 7.3v4.2m0 2v.1"/></svg></span></div>
+            <div class="metric-value" id="metricUnfilled">—</div>
+            <div class="metric-foot"><span id="metricUnfilledPct">—</span><span class="metric-foot-dot"></span><span>units need attention</span></div>
+            <div class="metric-note"><span class="metric-alert-dot"></span><span id="shortfallMessage">Service gaps are surfaced for review</span></div>
+          </article>
+          <article class="metric-card metric-capacity">
+            <div class="metric-top"><span class="metric-label">SUPPLY USED</span><span class="metric-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m10 2.5 7 3.8v7.4l-7 3.8-7-3.8V6.3z"/><path d="m3.2 6.4 6.8 3.8 6.8-3.8M10 10.2v7.1"/></svg></span></div>
+            <div class="metric-value" id="metricCapacity">—</div>
+            <div class="metric-foot"><span id="metricCapacityUnits">—</span><span class="metric-foot-dot"></span><span>available units allocated</span></div>
+            <div class="metric-note"><span class="metric-note-bar capacity-bar"></span><span id="unusedCapacity">—</span></div>
+          </article>
+        </section>
+
+        <div class="workspace-grid">
+          <div class="left-column">
+            <section class="panel controls-panel" aria-labelledby="controlsTitle">
+              <div class="panel-heading controls-heading">
+                <div>
+                  <div class="section-kicker">MODEL CONTROLS</div>
+                  <h2 id="controlsTitle">Shape the trade-off</h2>
+                </div>
+                <button class="text-button" type="button" id="editInputsButton"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m12.8 4.2 3 3M4 16l3.7-.8L16 6.9a1.8 1.8 0 0 0-2.6-2.6L5.1 12.6z"/></svg> Edit inputs</button>
+              </div>
+              <div class="controls-body">
+                <div class="priority-control">
+                  <div class="priority-label-row">
+                    <div><label for="servicePriority">Service priority</label><span class="help-inline">How strongly to avoid leaving demand unfilled</span></div>
+                    <div class="priority-value"><span id="priorityValue">76</span><small>/ 100</small></div>
+                  </div>
+                  <input id="servicePriority" type="range" min="0" max="100" step="1" value="76" aria-describedby="priorityHint">
+                  <div class="range-labels"><span>Cost-first</span><span id="priorityHint">Unfilled demand penalty <strong id="penaltyValue">$—</strong> / unit</span><span>Service-first</span></div>
+                </div>
+                <div class="scenario-controls">
+                  <div class="scenario-control-heading"><span>What changed?</span><span class="scenario-hint">Toggle a real-world event</span></div>
+                  <div class="event-toggle-row">
+                    <button class="event-toggle" id="portToggle" type="button" aria-pressed="false">
+                      <span class="event-icon port-event"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 15.8h14M5.5 13V6h9v7M8 6V3.5h4V6M3.5 10.5h13"/><path d="m6 16.5 1.2-1.2m2.3 1.2 1.2-1.2m2.3 1.2 1.2-1.2"/></svg></span>
+                      <span class="event-copy"><strong>Harbor delay</strong><small>Supplier capacity down</small></span>
+                      <span class="toggle-switch"><span></span></span>
+                    </button>
+                    <button class="event-toggle" id="demandToggle" type="button" aria-pressed="false">
+                      <span class="event-icon demand-event"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 15.5h14M4.5 12l3.2-3.5 2.6 2.1L15.5 5"/><path d="M11.5 5h4v4"/></svg></span>
+                      <span class="event-copy"><strong>Demand spike</strong><small>Orders rise by 12%</small></span>
+                      <span class="toggle-switch"><span></span></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="controls-footer"><span class="model-objective-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M5.5 10h9M8 15h4"/></svg></span><span id="objectiveSummary">Minimize freight spend while balancing unfilled demand.</span><span class="unsolved-pill" id="dirtyBadge" hidden>Changes not solved</span></div>
+            </section>
+
+            <section class="panel allocation-panel" aria-labelledby="allocationTitle">
+              <div class="panel-heading allocation-heading">
+                <div>
+                  <div class="section-kicker">SOLVER RECOMMENDATION</div>
+                  <h2 id="allocationTitle">Recommended allocation</h2>
+                </div>
+                <div class="allocation-actions">
+                  <span class="solver-status" id="solverStatus"><span class="solver-status-dot"></span><span>Optimal</span></span>
+                  <button class="icon-button" type="button" id="exportButton" aria-label="Export plan as CSV" title="Export plan as CSV"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v9m0 0 3.2-3.2M10 12l-3.2-3.2M4 13.5v3h12v-3"/></svg></button>
+                </div>
+              </div>
+              <div class="allocation-summary-row">
+                <span><span class="live-dot"></span><span id="allocationSummary">Solving your current model…</span></span>
+                <span class="last-solved" id="lastSolved">—</span>
+              </div>
+              <div class="allocation-legend" id="allocationLegend" aria-label="Supplier legend"></div>
+              <div class="allocation-list" id="allocationList" aria-live="polite"></div>
+              <div class="allocation-footnote"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.8 17 6v4.1c0 3.4-2.5 5.8-7 7.1-4.5-1.3-7-3.7-7-7.1V6z"/><path d="m7 10 2 2 4-4"/></svg><span>Supplier capacity and demand accounting verified by the local solver.</span><button type="button" class="learn-link" data-action="framework">How it works</button></div>
+            </section>
+
+            <section class="panel explanation-panel" aria-labelledby="explanationTitle">
+              <div class="explanation-mark"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5a6.5 6.5 0 0 0-3.9 11.7V17h7.8v-2.8A6.5 6.5 0 0 0 10 2.5Z"/><path d="M7.8 17h4.4M8 8.8a2 2 0 1 1 3.4 1.4c-.8.6-1.4 1-1.4 2"/></svg></div>
+              <div class="explanation-content">
+                <div class="explanation-heading"><div><div class="section-kicker">INTERPRETABILITY</div><h2 id="explanationTitle">Why this plan?</h2></div><span class="verified-label"><span>✓</span> Solver-backed</span></div>
+                <p class="explanation-intro" id="explanationIntro">—</p>
+                <ul class="explanation-points" id="explanationPoints"></ul>
+              </div>
+            </section>
+          </div>
+
+          <aside class="right-column" aria-label="Assistant and model details">
+            <section class="copilot-panel" aria-labelledby="copilotTitle">
+              <div class="copilot-header">
+                <div class="copilot-brand-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.7v4.1M12 17.2v4.1M2.7 12h4.1m10.4 0h4.1M5.4 5.4l2.9 2.9m7.4 7.4 2.9 2.9m0-13.2-2.9 2.9m-7.4 7.4-2.9 2.9"/><circle cx="12" cy="12" r="3.6"/></svg></div>
+                <div class="copilot-title"><div class="copilot-title-row"><h2 id="copilotTitle">Decision copilot</h2><span class="copilot-mode" id="copilotMode">DEMO</span></div><p><span class="copilot-online"></span><span id="copilotModeText">Local assistant · no data sent</span></p></div>
+                <button class="copilot-settings" id="copilotSettings" type="button" aria-label="Configure AI connection" title="Configure AI"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M8.2 3h3.6l.4 1.8 1.4.8 1.8-.6 1.8 3.1-1.4 1.3v1.6l1.4 1.3-1.8 3.1-1.8-.6-1.4.8-.4 1.8H8.2l-.4-1.8-1.4-.8-1.8.6-1.8-3.1L4.2 11v-1.6L2.8 8.1l1.8-3.1 1.8.6 1.4-.8z"/><circle cx="10" cy="10.2" r="2.3"/></svg></button>
+              </div>
+              <div class="copilot-context"><span class="context-dot"></span><span>Working with <strong>4 regions</strong>, <strong>3 suppliers</strong> and <strong>12 lanes</strong></span></div>
+              <div class="chat-thread" id="chatThread" aria-live="polite" aria-label="Conversation">
+                <div class="assistant-message welcome-message">
+                  <span class="assistant-avatar"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5v3M10 14.5v3M2.5 10h3m9 0h3M4.7 4.7l2.1 2.1m6.4 6.4 2.1 2.1m0-10.6-2.1 2.1m-6.4 6.4-2.1 2.1"/><circle cx="10" cy="10" r="2.8"/></svg></span>
+                  <div class="message-body"><div class="message-meta"><strong>Arcway assistant</strong><span>Just now</span></div><p id="welcomeMessage">I can explain the plan or test a what-if. The optimizer—not the language model—checks every capacity and demand limit.</p></div>
+                </div>
+              </div>
+              <div class="prompt-suggestions" id="promptSuggestions">
+                <span class="suggestions-label">TRY ASKING</span>
+                <button type="button" class="prompt-chip" data-prompt="Raise service priority to 95%">Raise service to 95%</button>
+                <button type="button" class="prompt-chip" data-prompt="What if Harbor is delayed?">What if Harbor is delayed?</button>
+                <button type="button" class="prompt-chip" data-prompt="Explain the shortfall">Explain the shortfall</button>
+              </div>
+              <form class="chat-composer" id="chatForm">
+                <label class="sr-only" for="chatInput">Ask about or adjust this plan</label>
+                <textarea id="chatInput" rows="1" maxlength="500" placeholder="Ask about this plan…" required></textarea>
+                <button class="send-button" type="submit" aria-label="Send message"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m3 3 14 7-14 7 2-6.5z"/><path d="M5 10h8"/></svg></button>
+              </form>
+              <div class="copilot-disclaimer"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 7v3.5M8 5.2v.1"/></svg><span id="copilotDisclaimer">Demo mode uses transparent local rules. Add your own compatible model if desired.</span></div>
+            </section>
+
+            <section class="panel inputs-panel" aria-labelledby="inputsTitle">
+              <div class="inputs-heading">
+                <div class="input-heading-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 4.5h14v11H3z"/><path d="M6 8h3m2 0h3M6 11.5h3m2 0h3"/></svg></div>
+                <div><div class="section-kicker">INSIGHT</div><h2 id="inputsTitle">Input snapshot</h2></div>
+                <span class="snapshot-badge">SAMPLE</span>
+              </div>
+              <div class="source-list">
+                <div class="source-row"><span class="source-icon inventory-source"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m10 2.8 7 3.8v6.8l-7 3.8-7-3.8V6.6z"/><path d="m3.2 6.6 6.8 3.8 6.8-3.8M10 10.4v6.8"/></svg></span><span class="source-copy"><strong>Supplier capacity</strong><small id="sourceCapacity">—</small></span><span class="source-state"><span class="source-state-dot"></span>Ready</span></div>
+                <div class="source-row"><span class="source-icon demand-source"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 16h14M4.5 13l3-3 2.5 2 5.5-6"/><path d="M12.5 6H16v3.5"/></svg></span><span class="source-copy"><strong>Regional demand</strong><small id="sourceDemand">—</small></span><span class="source-state"><span class="source-state-dot"></span>Ready</span></div>
+                <div class="source-row"><span class="source-icon lanes-source"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="4.5" cy="5" r="1.5"/><circle cx="15.5" cy="5" r="1.5"/><circle cx="4.5" cy="15" r="1.5"/><circle cx="15.5" cy="15" r="1.5"/><path d="M6 5h8M4.5 6.5v7M15.5 6.5v7M6 15h8"/></svg></span><span class="source-copy"><strong>Lane costs</strong><small>12 routes · $8–$29 per unit</small></span><span class="source-state"><span class="source-state-dot"></span>Ready</span></div>
+              </div>
+              <div class="snapshot-footer"><span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.8"/><path d="M8 4.5V8l2.3 1.5"/></svg>Demo values · local only</span><button type="button" class="learn-link" id="viewInputsButton">View inputs</button></div>
+            </section>
+
+            <div class="trust-note"><span class="trust-note-mark"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.8 17 6v4.1c0 3.4-2.5 5.8-7 7.1-4.5-1.3-7-3.7-7-7.1V6z"/><path d="m7 10 2 2 4-4"/></svg></span><p><strong>Human in the loop.</strong> Treat this as decision support. Review assumptions and approve the plan before acting.</p></div>
+          </aside>
+        </div>
+
+        <footer class="page-footer"><span>Arcway decision studio <span class="footer-separator">·</span> Static demo</span><span>Natural language in. Solver-checked decisions out.</span><button type="button" data-action="framework">About the 4I framework</button></footer>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+
+  <dialog class="modal" id="inputsDialog" aria-labelledby="inputsDialogTitle">
+    <div class="modal-header"><div><div class="section-kicker">MODEL DATA</div><h2 id="inputsDialogTitle">Edit optimization inputs</h2></div><button class="modal-close" type="button" data-close="inputsDialog" aria-label="Close"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"/></svg></button></div>
+    <p class="modal-intro">Change the synthetic planning data, then run the solver again. Values are kept in this browser tab only.</p>
+    <form id="inputsForm">
+      <div id="inputsEditor" class="inputs-editor"></div>
+      <div class="modal-actions"><button class="button button-soft" type="button" data-close="inputsDialog">Cancel</button><button class="button button-primary" type="submit"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg>Apply and re-solve</button></div>
+    </form>
+  </dialog>
+
+  <dialog class="modal ai-modal" id="aiDialog" aria-labelledby="aiDialogTitle">
+    <div class="modal-header"><div><div class="section-kicker">OPTIONAL CONNECTION</div><h2 id="aiDialogTitle">Bring your own AI</h2></div><button class="modal-close" type="button" data-close="aiDialog" aria-label="Close"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"/></svg></button></div>
+    <p class="modal-intro">Connect an OpenAI-compatible chat endpoint for natural-language interpretation. The optimization solver stays local and validates all plan changes.</p>
+    <form id="aiForm">
+      <label class="form-field"><span>Chat completions endpoint</span><input type="url" id="aiEndpoint" value="https://api.openai.com/v1/chat/completions" autocomplete="url" required></label>
+      <div class="form-two-col"><label class="form-field"><span>Model</span><input type="text" id="aiModel" value="gpt-4o-mini" autocomplete="off" required></label><label class="form-field"><span>API key <em>never committed</em></span><input type="password" id="aiKey" placeholder="Paste a key for this tab only" autocomplete="new-password" required></label></div>
+      <div class="security-callout"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.8 17 6v4.1c0 3.4-2.5 5.8-7 7.1-4.5-1.3-7-3.7-7-7.1V6z"/><path d="m7 10 2 2 4-4"/></svg><p><strong>Privacy note</strong>Your key is held in memory only and sent directly from this browser to the endpoint you choose. Prompts include the sample model data. Never paste a key into a public page or commit it to GitHub. Your provider must allow browser CORS requests.</p></div>
+      <div class="modal-actions"><button class="button button-soft" type="button" id="disconnectAiButton">Use demo mode</button><button class="button button-primary" type="submit">Connect for this tab</button></div>
+    </form>
+  </dialog>
+
+  <dialog class="modal scenario-modal" id="scenarioDialog" aria-labelledby="scenarioDialogTitle">
+    <div class="modal-header"><div><div class="section-kicker">WHAT-IF WORKSPACE</div><h2 id="scenarioDialogTitle">Scenario library</h2></div><button class="modal-close" type="button" data-close="scenarioDialog" aria-label="Close"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"/></svg></button></div>
+    <p class="modal-intro">Compare the presets on the same current input snapshot, then load one to test it in the workspace.</p>
+    <div class="scenario-library" id="scenarioLibrary"></div>
+    <div class="saved-scenario-area" id="savedScenarioArea" hidden><div class="saved-scenario-heading"><span>YOUR SAVED SCENARIOS</span><button type="button" id="clearSavedScenarios">Clear</button></div><div id="savedScenarioList"></div></div>
+    <div class="modal-actions scenario-footer"><button class="button button-soft" type="button" id="saveScenarioButton"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 3.5h10l2 2v11H4z"/><path d="M7 3.5v5h6v-5M7 16.5v-5h6v5"/></svg>Save current setup</button><button class="button button-primary" type="button" data-close="scenarioDialog">Done</button></div>
+  </dialog>
+
+  <dialog class="modal framework-modal" id="frameworkDialog" aria-labelledby="frameworkDialogTitle">
+    <div class="modal-header"><div><div class="section-kicker">A PRACTICAL DESIGN LENS</div><h2 id="frameworkDialogTitle">The 4I framework</h2></div><button class="modal-close" type="button" data-close="frameworkDialog" aria-label="Close"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"/></svg></button></div>
+    <p class="modal-intro">Generative AI can make optimization easier to use. A trusted model and solver still do the rigorous work.</p>
+    <div class="framework-detail-list">
+      <article><span class="detail-index">01</span><div><h3>Insight</h3><p>Bring current, complete, consistent operating inputs into one view. This demo shows supplier capacity, demand and lane costs with their scope made explicit.</p></div></article>
+      <article><span class="detail-index">02</span><div><h3>Interpretability</h3><p>Explain why a plan is feasible, how costs and service trade off, and where a shortfall comes from—in operational language.</p></div></article>
+      <article><span class="detail-index">03</span><div><h3>Interactivity</h3><p>Let planners ask what-if questions, adjust priorities and compare alternatives without rebuilding the model by hand.</p></div></article>
+      <article><span class="detail-index">04</span><div><h3>Improvisation</h3><p>Adapt to a disruption, update model inputs and re-optimize quickly—with people reviewing changes before action.</p></div></article>
+    </div>
+    <div class="framework-caution"><strong>Good division of labor:</strong> language models can help translate and explain; mathematical optimization enforces the encoded constraints. This prototype uses an exact min-cost-flow solver for the allocation, and a transparent rule-based assistant unless you connect a model.</div>
+    <div class="modal-actions"><button class="button button-primary" type="button" data-close="frameworkDialog">Got it</button></div>
+  </dialog>
+
+  <dialog class="modal save-modal" id="saveScenarioDialog" aria-labelledby="saveScenarioTitle">
+    <div class="modal-header"><div><div class="section-kicker">SCENARIO LIBRARY</div><h2 id="saveScenarioTitle">Save this setup</h2></div><button class="modal-close" type="button" data-close="saveScenarioDialog" aria-label="Close"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"/></svg></button></div>
+    <p class="modal-intro">Save the current assumptions in this session so you can return to them later.</p>
+    <form id="saveScenarioForm"><label class="form-field"><span>Scenario name</span><input type="text" id="scenarioNameInput" maxlength="40" placeholder="e.g. West coast demand spike" required></label><div class="modal-actions"><button class="button button-soft" type="button" data-close="saveScenarioDialog">Cancel</button><button class="button button-primary" type="submit">Save scenario</button></div></form>
+  </dialog>
+</body>
+</html>
